@@ -1,5 +1,14 @@
 # Jekyll::Cloud::Image
 
+`jekyll-cloud-image` convert images in `assets/images/posts` to webp format and uploads to cloud. S3
+
+Then you can use those images in markdown or HTML.
+Need to support [responsive images] in Markdown.
+
+depends on `ruby-vips` for converting the images
+
+
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/jekyll/cloud/image`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
@@ -41,3 +50,8 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the Jekyll::Cloud::Image project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/jekyll-cloud-image/blob/master/CODE_OF_CONDUCT.md).
+
+[ruby-vips]: https://github.com/libvips/ruby-vips
+[responsive-images]: https://developer.mozilla.org/en-US/docs/Learn/HTML/Multimedia_and_embedding/Responsive_images
+
+https://github.com/clustergarage/jekyll-code-tabs/blob/master/lib/jekyll-code-tabs.rb
