@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require_relative '../lib/jekyll_cloud_image.rb'
+
+
+JekyllCloudImage.convert(ARGV[0])
