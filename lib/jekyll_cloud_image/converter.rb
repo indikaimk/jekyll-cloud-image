@@ -13,12 +13,24 @@ module JekyllCloudImage
     # Convert png/jpg image to webp
     def self.convert(source)
       puts source
-      im = Vips::Image.new_from_file source
-      im.write_to_file '/Users/indika/Downloads/aws-s3-cli.webp'
+      if File.directory? source
+        Dir.each_child(source) do |filename|
+          puts filename
+        end     
+      else
+        self.convert_file source
+      end
+
       
-      # Dir.each_child(@source) do |filename|
-      #   puts filename
-      # end
+
     end
+    
+    private
+      def self.convert_file(filename)
+        webp_filename = filename.chomp(File.extname filename) + '.webp'
+        im = Vips::Image.new_from_file filename
+        im.write_to_file webp_filename      
+      
+      end
   end
 end
