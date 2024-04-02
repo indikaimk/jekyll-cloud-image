@@ -16,6 +16,10 @@ module JekyllCloudImage
       if File.directory? source
         Dir.each_child(source) do |filename|
           puts filename
+          if filename.end_with? ".png"
+            self.convert_file source + "/" + filename            
+          end
+
         end     
       else
         self.convert_file source
