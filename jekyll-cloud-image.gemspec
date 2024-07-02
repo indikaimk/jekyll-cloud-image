@@ -1,13 +1,14 @@
 
-lib = File.expand_path("../lib", __FILE__)
-$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "jekyll/cloud/image/version"
+# lib = File.expand_path("../lib", __FILE__)
+# $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib) 
+require_relative "lib/jekyll_cloud_image/version"
+# require_relative "lib/jekyll_cloud_image/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-cloud-image"
-  spec.version       = Jekyll::Cloud::Image::VERSION
-  spec.authors       = ["cloudqubes"]
-  spec.email         = ["cloud.qubes@gmail.com"]
+  spec.version       = Jekyll::CloudImage::VERSION
+  spec.authors       = ["indikaimk"]
+  spec.email         = ["indikaimk@gmail.com"]
 
   spec.summary       = %q{Image processing for Jekyll}
   spec.description   = %q{Upload images to cloud like S3.}
@@ -32,7 +33,7 @@ Gem::Specification.new do |spec|
   spec.files         = Dir.chdir(File.expand_path('..', __FILE__)) do
     `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   end
-  spec.bindir        = "exe"
+  spec.bindir        = "bin"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
