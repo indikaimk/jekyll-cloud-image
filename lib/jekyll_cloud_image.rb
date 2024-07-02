@@ -1,5 +1,5 @@
 require_relative 'jekyll_cloud_image/converter'
-require 'jekyll_cloud_image/image_tag'
+require_relative 'jekyll_cloud_image/image_tag'
 
 # module JekyllCloudImage
 #   class << self
