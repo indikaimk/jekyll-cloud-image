@@ -1,6 +1,6 @@
 module Jekyll
   module CloudImage
-    Class ImageTag < Liquid:Tag
+    Class ImageTag < Liquid::Tag
 
       def initialize(tag_name, text, tokens) 
         super
