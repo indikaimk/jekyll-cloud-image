@@ -1,6 +1,6 @@
 module Jekyll
   module CloudImage
-    Class ImageTag < Liquid::Tag
+    class ImageTag < Liquid::Tag
 
       def initialize(tag_name, text, tokens) 
         super
@@ -8,7 +8,9 @@ module Jekyll
       end
 
       def render(context)
-        "<img src=#{@image_file}>"
+        @settings = context.registers[:site].config["image_url_prefix"]
+        # "<img src=#{@image_file}>"
+        return '<img src="#{@image_file}" alt="Girl in a jacket" width="500" height="600">'
       end
     end
   end
