@@ -1,18 +1,38 @@
+require_relative 'utils'
+
 module Jekyll
   module CloudImage
     class ImageTag < Liquid::Tag
+      include Utils
 
       def initialize(tag_name, text, tokens) 
         super
-        
-        @image_file = text
+        params = text.split(',')
+        @image_file = params[0]
+        @params_hash =  Hash.new
+        if params.length > 1
+          params.each do |param|
+            key, value = get_key_and_value(param)
+            @params_hash[key.to_sym] = value
+          end
+        end
       end
 
       def render(context)
         @settings = context.registers[:site].config["image_url_prefix"]
+        alter_text = convert_key_to_string(:alt)
         # "<img src=#{@image_file}>"
-        return "<img src=\"#{@image_file}\" alt=\"Girl in a jacket\" width=\"500\" height=\"600\">"
+        return "<img src=\"#{@image_file}\" #{alter_text} width=\"500\" height=\"600\">"
       end
+
+      def get_key_and_value(param)
+        key, value = param.split(':')
+        key.strip!
+        value.strip!
+        return key, value
+      end
+
+
     end
   end
 end

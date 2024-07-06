@@ -2,9 +2,15 @@ require_relative 'helper'
 
 class TestImageTag < Minitest::Test
   include DirectoryHelpers
-  
+
   def setup
-    @site = fixture_site
+    content = <<~CONTENT
+    ---
+    title: Post with image tag
+    ---
+
+    {% cloud_image test.webp %}
+  CONTENT
   end
 
   def test_write_image_tag
