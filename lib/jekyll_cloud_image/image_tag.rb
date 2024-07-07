@@ -28,6 +28,7 @@ module Jekyll
       end
 
       def get_key_and_value(param)
+        puts param
         key, value = param.split(':')
         key.strip!
         value.strip!
