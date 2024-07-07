@@ -4,7 +4,16 @@ module Jekyll
 
       def convert_key_to_string(key, params_hash) 
         if params_hash.key? (key)
-          return "#{key.to_s}=\"#{params_hash[key]}\""
+          value = params_hash[key]
+          # Add the leading quotation mark
+          unless value.start_with? ('"')
+            value = "\"#{value}"
+          end
+          # Add the trailing quotation mark
+          unless value.end_with? ('"')
+            value = "#{value}\""
+          end
+          return "#{key.to_s}=#{value}"
         else
           return ""
         end
