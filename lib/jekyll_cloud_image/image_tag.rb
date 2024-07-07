@@ -12,8 +12,10 @@ module Jekyll
         @params_hash =  Hash.new
         if params.length > 1
           params.each do |param|
-            key, value = get_key_and_value(param)
-            @params_hash[key.to_sym] = value
+            if param.include? ':'
+              key, value = get_key_and_value(param)
+              @params_hash[key.to_sym] = value
+            end
           end
         end
       end
@@ -28,7 +30,6 @@ module Jekyll
       end
 
       def get_key_and_value(param)
-        puts param
         key, value = param.split(':')
         key.strip!
         value.strip!
