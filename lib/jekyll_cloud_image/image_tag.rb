@@ -21,8 +21,10 @@ module Jekyll
       def render(context)
         @settings = context.registers[:site].config["image_url_prefix"]
         alter_text = convert_key_to_string(:alt)
+        width = convert_key_to_string(:width)
+        height = convert_key_to_string(:height)
         # "<img src=#{@image_file}>"
-        return "<img src=\"#{@image_file}\" #{alter_text} width=\"500\" height=\"600\">"
+        return "<img src=\"#{@image_file}\" #{alter_text} #{width} #{height}>"
       end
 
       def get_key_and_value(param)
