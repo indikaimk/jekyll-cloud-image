@@ -11,6 +11,7 @@ module Jekyll
 
             c.action do |args, options|
               # Jekyll::Site.new_site_at(options['dest'])
+              FileUtils.mkdir_p '_cloud_images'
               puts "test command"
             end
           end
