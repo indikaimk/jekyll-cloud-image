@@ -27,6 +27,7 @@ module Jekyll
               FileUtils.mkdir_p '_cloud_images'
               update_git_ignore_file
               puts options
+              puts args
               puts "jekyll-cloud-image setup completed."
             end
           end
