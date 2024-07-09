@@ -8,7 +8,7 @@ module Jekyll
     class Setup < Jekyll::Command
       class << self
         def init_with_program(prog)
-          prog.command(:"setup-cloud_image") do |c|
+          prog.command(:"setup-cloud-image") do |c|
             c.syntax "new [options]"
             c.description 'Create a new Jekyll site.'
 
@@ -19,7 +19,7 @@ module Jekyll
               FileUtils.mkdir_p '_cloud_images'
               update_git_ignore_file
 
-              puts "test command"
+              puts "jekyll-cloud-image setup completed."
             end
           end
         end
@@ -27,6 +27,7 @@ module Jekyll
 
         #Add _cloud_images
         def update_git_ignore_file 
+          puts "Adding entries to the .gitignore file"
           git_ignore = File.open('.gitignore', 'a')
           git_ignore.write('_cloud_images')
           git_ignore.close          
