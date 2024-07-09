@@ -1,5 +1,10 @@
 # commands
 # cloud-image-setup
+# _config.yml
+# image_url_prefix = https://xyz
+# cloud_storage:
+#   cloud_provider: S3
+#   bucket_name: cloudqubes
 # cloud-image-convert
 # cloud-image-upload
 
@@ -12,14 +17,16 @@ module Jekyll
             c.syntax "new [options]"
             c.description 'Create a new Jekyll site.'
 
-            c.option 'dest', '-d DEST', 'Where the site should go.'
+            c.option 'provider', '-p PROVIDER', 'Cloud storage provider'
+            c.option 'bucket', '-b BUCKET', 'Cloud storage bucket'
+            c.option 'URL', '-u URL', 'Cloud storage bucket URL'
+
 
             c.action do |args, options|
               # Jekyll::Site.new_site_at(options['dest'])
               FileUtils.mkdir_p '_cloud_images'
               update_git_ignore_file
-              s = context.registers[:site].config["image_url_prefix"]
-              puts s
+              puts options
               puts "jekyll-cloud-image setup completed."
             end
           end
