@@ -3,7 +3,7 @@ module Jekyll
     class Setup < Jekyll::Command
       class << self
         def init_with_program(prog)
-          prog.command(:setup-cloud-image) do |c|
+          prog.command(:setup_cloud_image) do |c|
             c.syntax "new [options]"
             c.description 'Create a new Jekyll site.'
 
