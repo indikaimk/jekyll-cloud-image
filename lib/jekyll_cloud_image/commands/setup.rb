@@ -29,7 +29,7 @@ module Jekyll
         def update_git_ignore_file 
           puts "Adding entries to the .gitignore file"
           git_ignore = File.open('.gitignore', 'a')
-          git_ignore.write('_cloud_images')
+          git_ignore.write('_cloud_images\n')
           git_ignore.close          
         end
 
