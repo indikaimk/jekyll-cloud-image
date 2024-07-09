@@ -18,7 +18,8 @@ module Jekyll
               # Jekyll::Site.new_site_at(options['dest'])
               FileUtils.mkdir_p '_cloud_images'
               update_git_ignore_file
-
+              s = context.registers[:site].config["image_url_prefix"]
+              puts s
               puts "jekyll-cloud-image setup completed."
             end
           end

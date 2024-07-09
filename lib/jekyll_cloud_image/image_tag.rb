@@ -22,7 +22,7 @@ module Jekyll
 
       def render(context)
         @image_url_prefix = context.registers[:site].config["image_url_prefix"]
-        puts @settings
+        # puts @settings
         alter_text = convert_key_to_string(:alt, @params_hash)
         width = convert_key_to_string(:width, @params_hash)
         height = convert_key_to_string(:height, @params_hash)
