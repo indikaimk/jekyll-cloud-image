@@ -17,8 +17,8 @@ module Jekyll
             c.syntax "new [options]"
             c.description 'Create a new Jekyll site.'
 
-            c.option 'provider', '-p PROVIDER', 'Cloud storage provider'
-            c.option 'bucket', '-b BUCKET', 'Cloud storage bucket'
+            c.option 'provider', '-p PROVIDER', 'Cloud storage provider. Supported providers: S3.'
+            c.option 'bucket_name', '-n BUCKET_NAME', 'Cloud storage bucket name'
             c.option 'URL', '-u URL', 'Cloud storage bucket URL'
 
             c.action do |args, options|
@@ -45,11 +45,12 @@ module Jekyll
               if options["URL"]
 
               else
-                puts "EOF
-                  Cloud storage bucket URL not provided.
-                  Please add 
-
-                EOF";
+                puts "Cloud storage bucket URL not provided.\n" +
+                "Please make sure yo\n" +
+                "cloud_storage:\n" +
+                "  cloud_provider: <provider_name>\n" +
+                "  bucket_name: cloudqubes\n" +
+                "  bucket_url: https://xyz.com\n"
               end
             end
           end
