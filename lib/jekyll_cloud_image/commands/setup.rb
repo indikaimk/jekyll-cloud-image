@@ -45,11 +45,11 @@ module Jekyll
               if options["URL"]
 
               else
-                print <<EOF
+                puts "EOF
                   Cloud storage bucket URL not provided.
                   Please add 
 
-                EOF
+                EOF";
               end
             end
           end
