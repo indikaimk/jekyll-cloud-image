@@ -29,19 +29,19 @@ module Jekyll
             end
 
             c.action do |args, options|
-              conf_hash = {}
-              if options["provider"]
-                conf_hash[:cloud_storage][:provider] = options["provider"]
-              end
-                print <<EOF
-                  Cloud storage provider name not provided.
-                  Please add
-                  cloud_storage:
-                    cloud_provider: S3
-                    bucket_name: cloudqubes
-                    bucket_url: https://xyz.com
-                EOF
-              end
+              # conf_hash = {}
+              # if options["provider"]
+              #   conf_hash[:cloud_storage][:provider] = options["provider"]
+              # end
+              #   print <<EOF
+              #     Cloud storage provider name not provided.
+              #     Please add
+              #     cloud_storage:
+              #       cloud_provider: S3
+              #       bucket_name: cloudqubes
+              #       bucket_url: https://xyz.com
+              #   EOF
+              # end
               if options["URL"]
 
               else
