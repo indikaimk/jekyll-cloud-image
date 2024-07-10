@@ -36,10 +36,10 @@ module Jekyll
                 print <<EOF
                   Cloud storage provider name not provided.
                   Please add
-                  # cloud_storage:
-                  #   cloud_provider: S3
-                  #   bucket_name: cloudqubes
-                  #   bucket_url: https://xyz.com
+                  cloud_storage:
+                    cloud_provider: S3
+                    bucket_name: cloudqubes
+                    bucket_url: https://xyz.com
                 EOF
               end
               if options["URL"]
