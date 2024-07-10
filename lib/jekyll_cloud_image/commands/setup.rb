@@ -42,7 +42,8 @@ module Jekyll
               #       bucket_url: https://xyz.com
               #   EOF
               # end
-              if options["URL"]
+              puts options
+              if options["URL"] && options["bucket_name"]
 
               else
                 puts "Cloud storage bucket URL not provided.\n" +
