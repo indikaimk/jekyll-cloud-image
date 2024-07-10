@@ -43,15 +43,21 @@ module Jekyll
               #   EOF
               # end
               puts options
-              if options["URL"] && options["bucket_name"]
-
-              else
-                puts "Cloud storage bucket URL not provided.\n" +
-                "Please make sure yo\n" +
-                "cloud_storage:\n" +
-                "  cloud_provider: <provider_name>\n" +
+              if options["URL"] && options["bucket_name"] && options["provider"]
+                conf_string = "cloud_storage:\n" +
+                "  cloud_provider: #{options["provider"]}\n" +
                 "  bucket_name: cloudqubes\n" +
                 "  bucket_url: https://xyz.com\n"
+                config_file = File.open('_config.yml', 'a')
+                config_file.write(conf_string)
+                config_file.close
+              else
+                puts "Some cloud storage parameters are not provided.\n" +
+                "Please add the cloud storage parameters in the _config.yml as below\n" +
+                "cloud_storage:\n" +
+                "  cloud_provider: <provider_name>\n" +
+                "  bucket_name: <storage bucketname>\n" +
+                "  bucket_url: <storage bucket URL>\n"
               end
             end
           end
