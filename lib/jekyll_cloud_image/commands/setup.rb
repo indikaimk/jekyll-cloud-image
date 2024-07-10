@@ -64,10 +64,10 @@ module Jekyll
           git_ignore.close          
         end
 
-        #Update _config.yml
-        def update_jekyll_config(options)
-          if 
-        end
+        # #Update _config.yml
+        # def update_jekyll_config(options)
+        #   if 
+        # end
       end
     end
   end
