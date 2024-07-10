@@ -33,7 +33,7 @@ module Jekyll
               if options["provider"]
                 conf_hash[:cloud_storage][:provider] = options["provider"]
               end
-                puts <<EOF
+                print <<EOF
                   Cloud storage provider name not provided.
                   Please add
                   # cloud_storage:
@@ -45,7 +45,7 @@ module Jekyll
               if options["URL"]
 
               else
-                puts <<EOF
+                print <<EOF
                   Cloud storage bucket URL not provided.
                   Please add 
 
