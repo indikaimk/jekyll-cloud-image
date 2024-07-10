@@ -1,10 +1,10 @@
 # commands
 # cloud-image-setup
 # _config.yml
-# image_url_prefix = https://xyz
 # cloud_storage:
 #   cloud_provider: S3
 #   bucket_name: cloudqubes
+#   bucket_url: https://xyz.com
 # cloud-image-convert
 # cloud-image-upload
 
@@ -21,14 +21,36 @@ module Jekyll
             c.option 'bucket', '-b BUCKET', 'Cloud storage bucket'
             c.option 'URL', '-u URL', 'Cloud storage bucket URL'
 
-
             c.action do |args, options|
               # Jekyll::Site.new_site_at(options['dest'])
               FileUtils.mkdir_p '_cloud_images'
               update_git_ignore_file
-              puts options
-              puts args
-              puts "jekyll-cloud-image setup completed."
+              # puts "jekyll-cloud-image setup completed."
+            end
+
+            c.action do |args, options|
+              conf_hash = {}
+              if options["provider"]
+                conf_hash[:cloud_storage][:provider] = options["provider"]
+              end
+                puts <<EOF
+                  Cloud storage provider name not provided.
+                  Please add
+                  # cloud_storage:
+                  #   cloud_provider: S3
+                  #   bucket_name: cloudqubes
+                  #   bucket_url: https://xyz.com
+                EOF
+              end
+              if options["URL"]
+
+              else
+                puts <<EOF
+                  Cloud storage bucket URL not provided.
+                  Please add 
+
+                EOF
+              end
             end
           end
         end
@@ -42,6 +64,10 @@ module Jekyll
           git_ignore.close          
         end
 
+        #Update _config.yml
+        def update_jekyll_config(options)
+          if 
+        end
       end
     end
   end
