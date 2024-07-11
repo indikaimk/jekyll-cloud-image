@@ -8,6 +8,8 @@
 # cloud-image-convert
 # cloud-image-upload
 
+require 'yaml'
+
 module Jekyll
   module CloudImage
     class Setup < Jekyll::Command
@@ -25,23 +27,9 @@ module Jekyll
               # Jekyll::Site.new_site_at(options['dest'])
               FileUtils.mkdir_p '_cloud_images'
               update_git_ignore_file
-              # puts "jekyll-cloud-image setup completed."
             end
 
             c.action do |args, options|
-              # conf_hash = {}
-              # if options["provider"]
-              #   conf_hash[:cloud_storage][:provider] = options["provider"]
-              # end
-              #   print <<EOF
-              #     Cloud storage provider name not provided.
-              #     Please add
-              #     cloud_storage:
-              #       cloud_provider: S3
-              #       bucket_name: cloudqubes
-              #       bucket_url: https://xyz.com
-              #   EOF
-              # end
               puts options
               if options["URL"] && options["bucket_name"] && options["provider"]
                 conf_string = "cloud_storage:\n" +
@@ -59,6 +47,7 @@ module Jekyll
                 "  bucket_name: <storage bucketname>\n" +
                 "  bucket_url: <storage bucket URL>\n"
               end
+              puts "jekyll-cloud-image setup completed."
             end
           end
         end
